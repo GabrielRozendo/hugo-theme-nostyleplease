@@ -10,5 +10,13 @@
     {{ end }}
 
     {{ .Content }}
+
+    {{ $published := .PublishDate | time.Format ":date_medium" }}
+    {{ $modified := .Lastmod | time.Format ":date_medium" }}
+    
+    {{ if ne $published $modified }}
+    <span> Last modified: {{ $published }} {{ $modified }} </span>
+    {{ end }}
+
 </article>
 {{ end }}
