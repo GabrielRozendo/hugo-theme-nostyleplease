@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode }}">
     {{- partial "head.html" . -}}
-    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
-        {{ partial "header.html" . }}
         <main class="page-content" aria-label="Content">
             <div class="w">
                 {{- block "main" . }}{{- end }}

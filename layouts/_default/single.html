@@ -2,18 +2,22 @@
 {{ partial "back_link.html" .}}
 
 <article>
+    {{ if ne .Params.showdate false }}
     <p class="post-meta">
         <time datetime="{{ .Date }}">
             {{ .Date | time.Format site.Params.theme_config.date_format }}
         </time>
     </p>
+    {{ end }}
 
+    {{ if ne .Params.showtitle false }}
     <h1>{{ .Title }}</h1>
+    {{ end }}
 
     {{ if .Params.toc }}
-        <aside {{ if .Params.tocBorder }} class="toc" {{ end }}>
-            {{ .TableOfContents }}
-        </aside>
+    <aside {{ if .Params.tocBorder }} class="toc" {{ end }}>
+        {{ .TableOfContents }}
+    </aside>
     {{ end }}
 
     {{ .Content }}
